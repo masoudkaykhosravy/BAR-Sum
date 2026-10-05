@@ -1,0 +1,10 @@
+Model,Category,ROUGE-1,ROUGE-2,ROUGE-L,FactCC (%),Repetition Rate (%),Inference Latency (ms)
+Lead-3,Heuristic,40.42,17.62,36.75,72.10,0.00,2.1
+TextRank,Graph-based,33.20,11.80,29.60,74.50,1.20,18.4
+BERTSumExt,Transformer Supervised,43.25,20.22,39.63,78.30,3.40,42.5
+BanditSum,RL Policy Gradient,41.50,18.70,37.60,76.20,2.80,38.1
+RL-Multi (Fixed Weights),RL Multi-Objective,42.80,19.45,39.10,81.20,1.90,44.2
+LLaMA-2-7B (Zero-Shot),LLM Prompting,38.20,15.10,34.80,84.10,0.80,310.0
+BAR-Sum (No Bounds - Ablation),Ablation Study,43.10,19.80,39.40,79.50,2.40,45.0
+BAR-Sum (Static Weights - Ablation),Ablation Study,43.40,20.10,39.80,82.00,1.60,45.2
+BAR-Sum (Proposed),RL Bounded Adaptive,44.18,20.85,40.62,87.40,0.45,45.8

@@ -1,0 +1,74 @@
+# ==============================================================================
+# IEEE Reproducibility .gitignore for BAR-Sum Repository
+# ==============================================================================
+
+# --- Python & Bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Virtual Environments (Crucial: Never upload venv) ---
+venv/
+venv*/
+ENV/
+env/
+env*/
+.venv/
+.venv*/
+
+# --- IDEs & Editors ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.pydevproject
+.settings/
+
+# --- Operating System Files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.temp
+
+# --- PyTorch / HuggingFace Large Caches ---
+*.pth.tar
+*.ckpt
+huggingface/
+.cache/
+wandb/
+
+# --- Large Raw Datasets (Exclude bulky downloads, preserve test samples) ---
+data/raw/*.csv
+data/raw/*.arrow
+data/raw/*.parquet
+data/raw/*.tar.gz
+data/raw/*.zip
+data/cache/
+
+# --- Whitelist / Explicit Inclusions (DO NOT IGNORE) ---
+# Ensure test splits and evaluation artifacts are preserved for IEEE reviewers:
+!data/raw/cnn_dm_test.json
+!data/raw/xsum_test.json
+!checkpoints/best_bar_sum_agent.pt
+!logs_and_results/*.json
+!logs_and_results/figures/*.png
+!logs_and_results/figures/*.pdf

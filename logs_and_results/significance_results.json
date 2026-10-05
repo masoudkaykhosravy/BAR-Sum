@@ -1,0 +1,9 @@
+{
+    "sample_count": 20,
+    "proposed_mean_r1": 68.76190476190477,
+    "baseline_mean_r1": 64.65994675251252,
+    "t_statistic": 17.034492663081057,
+    "t_p_value": 5.761171102221698e-13,
+    "wilcoxon_p_value": 1.9073486328125e-06,
+    "significant_p_0_01": true
+}

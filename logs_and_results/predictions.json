@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "document": "The proposed bounded adaptive reward framework dynamically stabilizes multi-objective reinforcement learning.",
+    "predicted_summary": "The proposed bounded adaptive reward framework dynamically stabilizes reinforcement learning.",
+    "reference_summary": "A bounded adaptive reward framework stabilizes multi-objective reinforcement learning."
+  },
+  {
+    "id": 2,
+    "document": "Extractive text summarization selects key sentences from source documents to minimize factual hallucination.",
+    "predicted_summary": "Extractive text summarization selects salient sentences to eliminate factual hallucination.",
+    "reference_summary": "Extractive summarization selects salient sentences from text to minimize hallucination."
+  },
+  {
+    "id": 3,
+    "document": "PPO policy optimization with clipped surrogate objective prevents catastrophic policy collapse during training.",
+    "predicted_summary": "PPO policy optimization with clipping prevents policy collapse during training.",
+    "reference_summary": "Clipped surrogate PPO optimization avoids policy collapse during model training."
+  },
+  {
+    "id": 4,
+    "document": "Experimental evaluations on CNN/DailyMail and XSum show statistically significant improvements.",
+    "predicted_summary": "Evaluations on CNN/DailyMail and XSum indicate statistically significant improvements.",
+    "reference_summary": "Experiments on CNN/DailyMail and XSum benchmarks demonstrate significant performance gains."
+  },
+  {
+    "id": 5,
+    "document": "Weight bounds between 0.10 and 0.45 ensure balanced trade-offs across coverage, fluency, and faithfulness.",
+    "predicted_summary": "Reward bounds between 0.10 and 0.45 guarantee balanced multi-objective optimization.",
+    "reference_summary": "Bounded reward weights between 0.10 and 0.45 balance coverage, fluency, and faithfulness."
+  },
+  {
+    "id": 1,
+    "document": "The proposed bounded adaptive reward framework dynamically stabilizes multi-objective reinforcement learning.",
+    "predicted_summary": "The proposed bounded adaptive reward framework dynamically stabilizes reinforcement learning.",
+    "reference_summary": "A bounded adaptive reward framework stabilizes multi-objective reinforcement learning."
+  },
+  {
+    "id": 2,
+    "document": "Extractive text summarization selects key sentences from source documents to minimize factual hallucination.",
+    "predicted_summary": "Extractive text summarization selects salient sentences to eliminate factual hallucination.",
+    "reference_summary": "Extractive summarization selects salient sentences from text to minimize hallucination."
+  },
+  {
+    "id": 3,
+    "document": "PPO policy optimization with clipped surrogate objective prevents catastrophic policy collapse during training.",
+    "predicted_summary": "PPO policy optimization with clipping prevents policy collapse during training.",
+    "reference_summary": "Clipped surrogate PPO optimization avoids policy collapse during model training."
+  },
+  {
+    "id": 4,
+    "document": "Experimental evaluations on CNN/DailyMail and XSum show statistically significant improvements.",
+    "predicted_summary": "Evaluations on CNN/DailyMail and XSum indicate statistically significant improvements.",
+    "reference_summary": "Experiments on CNN/DailyMail and XSum benchmarks demonstrate significant performance gains."
+  },
+  {
+    "id": 5,
+    "document": "Weight bounds between 0.10 and 0.45 ensure balanced trade-offs across coverage, fluency, and faithfulness.",
+    "predicted_summary": "Reward bounds between 0.10 and 0.45 guarantee balanced multi-objective optimization.",
+    "reference_summary": "Bounded reward weights between 0.10 and 0.45 balance coverage, fluency, and faithfulness."
+  },
+  {
+    "id": 1,
+    "document": "The proposed bounded adaptive reward framework dynamically stabilizes multi-objective reinforcement learning.",
+    "predicted_summary": "The proposed bounded adaptive reward framework dynamically stabilizes reinforcement learning.",
+    "reference_summary": "A bounded adaptive reward framework stabilizes multi-objective reinforcement learning."
+  },
+  {
+    "id": 2,
+    "document": "Extractive text summarization selects key sentences from source documents to minimize factual hallucination.",
+    "predicted_summary": "Extractive text summarization selects salient sentences to eliminate factual hallucination.",
+    "reference_summary": "Extractive summarization selects salient sentences from text to minimize hallucination."
+  },
+  {
+    "id": 3,
+    "document": "PPO policy optimization with clipped surrogate objective prevents catastrophic policy collapse during training.",
+    "predicted_summary": "PPO policy optimization with clipping prevents policy collapse during training.",
+    "reference_summary": "Clipped surrogate PPO optimization avoids policy collapse during model training."
+  },
+  {
+    "id": 4,
+    "document": "Experimental evaluations on CNN/DailyMail and XSum show statistically significant improvements.",
+    "predicted_summary": "Evaluations on CNN/DailyMail and XSum indicate statistically significant improvements.",
+    "reference_summary": "Experiments on CNN/DailyMail and XSum benchmarks demonstrate significant performance gains."
+  },
+  {
+    "id": 5,
+    "document": "Weight bounds between 0.10 and 0.45 ensure balanced trade-offs across coverage, fluency, and faithfulness.",
+    "predicted_summary": "Reward bounds between 0.10 and 0.45 guarantee balanced multi-objective optimization.",
+    "reference_summary": "Bounded reward weights between 0.10 and 0.45 balance coverage, fluency, and faithfulness."
+  },
+  {
+    "id": 1,
+    "document": "The proposed bounded adaptive reward framework dynamically stabilizes multi-objective reinforcement learning.",
+    "predicted_summary": "The proposed bounded adaptive reward framework dynamically stabilizes reinforcement learning.",
+    "reference_summary": "A bounded adaptive reward framework stabilizes multi-objective reinforcement learning."
+  },
+  {
+    "id": 2,
+    "document": "Extractive text summarization selects key sentences from source documents to minimize factual hallucination.",
+    "predicted_summary": "Extractive text summarization selects salient sentences to eliminate factual hallucination.",
+    "reference_summary": "Extractive summarization selects salient sentences from text to minimize hallucination."
+  },
+  {
+    "id": 3,
+    "document": "PPO policy optimization with clipped surrogate objective prevents catastrophic policy collapse during training.",
+    "predicted_summary": "PPO policy optimization with clipping prevents policy collapse during training.",
+    "reference_summary": "Clipped surrogate PPO optimization avoids policy collapse during model training."
+  },
+  {
+    "id": 4,
+    "document": "Experimental evaluations on CNN/DailyMail and XSum show statistically significant improvements.",
+    "predicted_summary": "Evaluations on CNN/DailyMail and XSum indicate statistically significant improvements.",
+    "reference_summary": "Experiments on CNN/DailyMail and XSum benchmarks demonstrate significant performance gains."
+  },
+  {
+    "id": 5,
+    "document": "Weight bounds between 0.10 and 0.45 ensure balanced trade-offs across coverage, fluency, and faithfulness.",
+    "predicted_summary": "Reward bounds between 0.10 and 0.45 guarantee balanced multi-objective optimization.",
+    "reference_summary": "Bounded reward weights between 0.10 and 0.45 balance coverage, fluency, and faithfulness."
+  }
+]

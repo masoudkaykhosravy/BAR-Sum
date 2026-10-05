@@ -1,0 +1,98 @@
+# =============================================================================
+# Project: BAR-Sum (Bounded Adaptive Reward Deep Reinforcement Learning)
+# Author: Masoud Keikhosravi
+# Affiliation: Islamic Azad University, Mashhad Branch
+# Standard: IEEE Q1 Reproducible Configuration
+# =============================================================================
+
+# 1. Global & Hardware Settings
+experiment:
+  name: "BAR-Sum-CNNDM-XSum"
+  seed: 42
+  device: "cuda"          # "cuda" or "cpu"
+  mixed_precision: true   # FP16 acceleration
+  num_workers: 4
+
+# 2. Dataset Paths & Data Processing
+data:
+  dataset_name: "cnn_dailymail"  # Options: 'cnn_dailymail', 'xsum'
+  dataset_version: "3.0.0"
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  max_doc_sentences: 50         # Max sentences per document
+  max_sentence_length: 50       # Max tokens per sentence
+  max_summary_sentences: 3      # Standard extractive summary length (Oracle k=3)
+  oracle_metric: "rouge-2"
+
+# 3. Backbone Model & Hierarchical Encoder
+model:
+  transformer_backbone: "bert-base-uncased"
+  word_embedding_dim: 768
+  sentence_lstm_hidden_dim: 256
+  sentence_lstm_layers: 2
+  bidirectional_lstm: true
+  inter_sentence_transformer_layers: 2
+  inter_sentence_transformer_heads: 8
+  dropout: 0.1
+
+# 4. Deep Reinforcement Learning (PPO) Hyperparameters
+ppo:
+  actor_lr: 1.0e-4
+  critic_lr: 5.0e-4
+  gamma: 0.99                   # Discount factor
+  gae_lambda: 0.95              # Generalized Advantage Estimation parameter
+  clip_eps: 0.2                 # PPO clip parameter (epsilon)
+  entropy_coef: 0.01            # Policy entropy coefficient for exploration
+  value_loss_coef: 0.5          # Critic value loss weight
+  max_grad_norm: 0.5            # Gradient clipping threshold
+  ppo_epochs: 4                 # Epochs per PPO update step
+  batch_size: 32
+  mini_batch_size: 8
+
+# 5. Core Novelty: Bounded Adaptive Inverse-Variance Reward Controller
+reward_controller:
+  # Lower and Upper bounds preventing weight collapse
+  w_min: 0.10
+  w_max: 0.45
+  
+  # Moving window size for running variance calculation
+  window_size: 100
+  
+  # Small epsilon for numerical stability in inverse-variance
+  eps_stability: 1.0e-6
+  
+  # Initial component weights (sum to 1.0)
+  initial_weights:
+    rouge: 0.35
+    nli_faithfulness: 0.35
+    redundancy: 0.15
+    fluency: 0.15
+
+# 6. Reward Functions & Auxiliary Evaluators
+rewards:
+  nli_model_name: "roberta-large-mnli"   # For factual consistency & entailment
+  rouge_types: ["rouge1", "rouge2", "rougeL"]
+  redundancy_sim_threshold: 0.6
+  length_penalty_coef: 0.1
+
+# 7. Training & Checkpointing
+training:
+  total_episodes: 20000
+  save_every_episodes: 2000
+  eval_every_episodes: 500
+  early_stopping_patience: 10
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs_and_results"
+  save_best_only: true
+
+# 8. Evaluation & Significance Testing
+evaluation:
+  split: "test"
+  significance_alpha: 0.01      # Threshold for p-value (p < 0.01)
+  bootstrap_samples: 1000
+  metrics:
+    - "ROUGE-1"
+    - "ROUGE-2"
+    - "ROUGE-L"
+    - "FactCC"
+    - "NLI_Entailment"
