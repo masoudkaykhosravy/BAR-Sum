@@ -1,4 +1,3 @@
-markdown
 # BAR-Sum: Bounded Adaptive Multi-Objective Reinforcement Learning for Factually Faithful Extractive Text Summarization
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/downloads/)
