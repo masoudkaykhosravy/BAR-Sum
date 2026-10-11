@@ -1,3 +1,4 @@
+markdown
 # BAR-Sum: Bounded Adaptive Multi-Objective Reinforcement Learning for Factually Faithful Extractive Text Summarization
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/downloads/)
@@ -38,7 +39,7 @@ BAR-Sum-Code/
 │   ├── tab_hyperparameters.tex
 │   ├── tab_human_eval.tex
 │   ├── tab_sensitivity.tex
-│   └── tab_complexity.tex
+│   └── tab_reproducibility.tex
 ├── scripts/                  # Visualization and automated artifact generation
 │   ├── generate_fig_weight_dynamics.py  # Regenerates Figure 1 (w_min=0.10, w_max=0.45)
 │   ├── export_tables.py                 # Exports raw evaluation metrics into LaTeX tables
@@ -207,4 +208,3 @@ bibtex
 }
 📜 License
 This project is licensed under the MIT License — see the LICENSE file for details. Built for reproducible scientific research and verifiable artificial intelligence.
-
