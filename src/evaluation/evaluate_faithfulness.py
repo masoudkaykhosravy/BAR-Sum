@@ -13,7 +13,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 
 class FaithfulnessEvaluator:
-    def __init__(self, model_name="roberta-base-mnli", device=None):
+    def __init__(self, model_name="roberta-large-mnli", device=None):
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         print(f"[*] Initializing Faithfulness Evaluator on device: {self.device}")
         try:
@@ -51,35 +51,74 @@ class FaithfulnessEvaluator:
             return min(100.0, overlap * 100.0)
 
 
-def run_faithfulness_evaluation(pred_path="./logs_and_results/predictions.json",
-                                out_path="./logs_and_results/faithfulness_results.json"):
+def run_faithfulness_evaluation(
+    pred_path="./logs_and_results/predictions.json",
+    dataset_path="./data/raw/cnn_dm_test.json",
+    out_path="./logs_and_results/faithfulness_results.json",
+    max_doc_sents=40
+):
     if not os.path.exists(pred_path):
         raise FileNotFoundError(f"Predictions file not found: {pred_path}")
+    if not os.path.exists(dataset_path):
+        raise FileNotFoundError(f"Dataset file not found: {dataset_path}")
 
     with open(pred_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+        preds = json.load(f)
+
+    with open(dataset_path, "r", encoding="utf-8") as f:
+        ds = json.load(f)
+
+    # Build id -> document_text map
+    doc_map = {}
+    for ex in ds:
+        ex_id = ex.get("id")
+        sents = ex.get("sentences", [])
+        if isinstance(sents, list):
+            sents = sents[:max_doc_sents]  # keep NLI premise bounded
+            doc_text = " ".join([str(x).strip() for x in sents if str(x).strip()])
+        else:
+            doc_text = str(sents)
+        doc_map[ex_id] = doc_text
 
     evaluator = FaithfulnessEvaluator()
     scores = []
+    used = 0
+    skipped = 0
+    missing_doc = 0
 
-    for item in tqdm(data, desc="Evaluating Faithfulness"):
-        doc = item.get("document") or item.get("source") or item.get("reference_summary", "")
-        summary = item.get("predicted_summary") or item.get("prediction", "")
-        
+    for item in tqdm(preds, desc="Evaluating Faithfulness (Doc->Pred)"):
+        ex_id = item.get("id")
+        summary = item.get("prediction", "")
+
+        doc = doc_map.get(ex_id, "")
+        if not doc:
+            missing_doc += 1
+            skipped += 1
+            continue
+        if not summary:
+            skipped += 1
+            continue
+
         score = evaluator.evaluate_sample(doc, summary)
         scores.append(score)
+        used += 1
 
     mean_score = float(np.mean(scores)) if scores else 0.0
 
     print("\n=======================================================")
-    print(" [✔] FAITHFULNESS EVALUATION RESULTS (NLI Entailment)")
+    print(" [✔] FAITHFULNESS (NLI Entailment) — Document ⇒ Prediction")
     print("=======================================================")
-    print(f" Evaluated Samples  : {len(scores)}")
+    print(f" Total predictions : {len(preds)}")
+    print(f" Used samples      : {used}")
+    print(f" Skipped samples   : {skipped} (missing_doc={missing_doc})")
     print(f" Mean Faithfulness : {mean_score:.2f}%")
     print("=======================================================")
 
     results = {
-        "evaluated_samples": len(scores),
+        "total_predictions": len(preds),
+        "used_samples": used,
+        "skipped_samples": skipped,
+        "missing_doc": missing_doc,
         "mean_faithfulness": round(mean_score, 2),
         "individual_scores": scores
     }
@@ -91,10 +130,24 @@ def run_faithfulness_evaluation(pred_path="./logs_and_results/predictions.json",
     print(f"[✔] Faithfulness results saved to: {out_path}\n")
     return results
 
-
 if __name__ == "__main__":
+    # ابتدا parser را تعریف می‌کنیم
     parser = argparse.ArgumentParser(description="Evaluate summary faithfulness.")
+    
+    # سپس آرگومان‌ها را اضافه می‌کنیم
     parser.add_argument("--pred_path", type=str, default="./logs_and_results/predictions.json")
+    parser.add_argument("--dataset_path", type=str, default="./data/raw/cnn_dm_test.json")
     parser.add_argument("--out_path", type=str, default="./logs_and_results/faithfulness_results.json")
+    parser.add_argument("--max_doc_sents", type=int, default=40)
+    
+    # در نهایت پارامترها را می‌خوانیم و تابع اصلی را صدا می‌زنیم
     args = parser.parse_args()
-    run_faithfulness_evaluation(args.pred_path, args.out_path)
+    
+    run_faithfulness_evaluation(
+        pred_path=args.pred_path,
+        dataset_path=args.dataset_path,
+        out_path=args.out_path,
+        max_doc_sents=args.max_doc_sents
+    )
+
+

@@ -44,7 +44,7 @@ def main():
     # 1. Dataset Downloading
     run_step(
         "1. Benchmark Dataset Acquisition (CNN/DM & XSum)",
-        [PYTHON_EXEC, "scripts/download_datasets.py", "--dataset", "all", "--samples", "50"]
+        [PYTHON_EXEC, "scripts/download_datasets.py", "--dataset", "all", "--samples", "500"]
     )
 
     # 2. PPO Agent Training

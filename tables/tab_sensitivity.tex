@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity Analysis of Bounded Parameter $w_{\min}$ on CNN/DailyMail Test Set.}
+\label{tab:sensitivity}
+\resizebox{0.95\columnwidth}{!}{%
+\begin{tabular}{ccccc}
+\hline
+\textbf{Lower Bound ($w_{\min}$)} & \textbf{FactCC (\%)} & \textbf{ROUGE-1} & \textbf{ROUGE-L} & \textbf{Rep-2 (\%)} \\ \hline
+0.00 (Unbounded)                  & 75.8                  & 42.45            & 38.50            & 0.34                \\
+0.05                              & 84.1                  & 43.80            & 38.95            & 0.26                \\
+\textbf{0.10 (Default)}           & \textbf{89.4}         & \textbf{44.15}   & \textbf{39.20}   & \textbf{0.21}       \\
+0.15                              & 88.9                  & 43.10            & 38.45            & 0.20                \\
+0.20                              & 86.2                  & 41.90            & 37.80            & 0.22                \\ \hline
+\end{tabular}%
+}
+\end{table}

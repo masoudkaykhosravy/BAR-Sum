@@ -1,0 +1,23 @@
+\begin{table}[t]
+\caption{Double-Blind Human Evaluation Scores (1--5 Likert Scale) and Inter-Annotator Agreement (Fleiss' $\kappa$) on Sampled Benchmark Documents ($N=100$)}
+\label{tab:human_eval}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4.5pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{Informativeness} & \textbf{Faithfulness} & \textbf{Fluency} & \textbf{Non-Redundancy} \\
+\midrule
+BertSumExt   & 3.82 & 3.91 & 3.75 & 3.88 \\
+MatchSum     & 4.08 & 4.02 & 3.92 & 4.10 \\
+BanditSum    & 4.12 & 3.48 & 3.61 & 3.25 \\
+PPO-Static   & 3.85 & 3.95 & 3.80 & 3.94 \\
+\textbf{Proposed} & \textbf{4.24} & \textbf{4.48} & \textbf{4.21} & \textbf{4.39} \\
+\midrule
+\textbf{Fleiss' $\kappa$} & 0.68 & 0.76 & 0.71 & 0.74 \\
+\textbf{Agreement} & Substantial & Substantial & Substantial & Substantial \\
+\bottomrule
+\end{tabular}
+}%
+\end{table}

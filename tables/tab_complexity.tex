@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Computational Complexity, Memory Footprint, Training Throughput, and Wall-Clock Inference Latency per Document ($N=512$ tokens)}
+\label{tab:computational_complexity}
+\centering
+\setlength{\tabcolsep}{3pt}
+\scriptsize
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model} & \textbf{Params (M)} & \textbf{FLOPs (G)} & \textbf{Peak VRAM (MB)} & \textbf{Throughput (docs/s)} & \textbf{Latency (ms/doc)} \\
+\midrule
+BertSumExt & 109.5 & 22.4 & 1,120 & 42.5 & 24.8 \\
+MatchSum & 109.8 & 89.6 & 2,840 & 14.2 & 98.6 \\
+BanditSum & 110.1 & 22.8 & 1,180 & 36.0 & 26.2 \\
+DiCo-EXT~\cite{dicoext2025} & 110.2 & 23.0 & 1,200 & 30.5 & 27.1 \\
+Ext-LLaMA-3-8B~\cite{dubey2024llama3} & 8,030.0 & 1,640.0 & 16,400 & 1.5 & 645.0 \\
+\textbf{Proposed} & \textbf{110.4} & \textbf{23.1} & \textbf{1,210} & \textbf{28.4} & \textbf{27.5} \\
+\bottomrule
+\end{tabular}
+}%
+\end{table}

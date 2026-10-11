@@ -1,0 +1,38 @@
+\begin{table}[t]
+\caption{Hyperparameter Specifications for the Proposed Framework}
+\label{tab:hyperparams}
+\centering
+\setlength{\tabcolsep}{3pt}
+\scriptsize
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lll}
+\toprule
+\textbf{Category} & \textbf{Hyperparameter} & \textbf{Assigned Value} \\
+\midrule
+\multirow{4}{*}{Encoder} 
+  & Architecture & BERT-base \\
+  & Hidden Dimension ($d_h$) & 768 \\
+  & Max Input Tokens & 512 \\
+  & Sentence Pooling & Mean pooling across subwords \\
+\midrule
+\multirow{6}{*}{PPO \& GAE} 
+  & Policy Architecture & 2-layer MLP (hidden: 256) \\
+  & Value Architecture & 2-layer MLP (hidden: 256) \\
+  & Discount Factor ($\gamma$) & 0.99 \\
+  & GAE Parameter ($\lambda$) & 0.95 \\
+  & PPO Clipping ($\epsilon$) & 0.20 \\
+  & Rollout Size ($B$) & 128 episodes \\
+\midrule
+\multirow{4}{*}{Controller} 
+  & Exponential Momentum ($\beta$) & 0.95 \\
+  & Variance Floor ($\varepsilon_w$) & $10^{-4}$ \\
+  & Lower Weight Bound ($w_{\min}$) & 0.10 \\
+  & Upper Weight Bound ($w_{\max}$) & 0.45 \\
+\midrule
+\multirow{2}{*}{Optimization} 
+  & Actor Learning Rate & $3 \times 10^{-5}$ \\
+  & Critic Learning Rate & $1 \times 10^{-4}$ \\
+\bottomrule
+\end{tabular}
+}%
+\end{table}
