@@ -5,11 +5,12 @@ markdown
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![Reproducibility Compliant](https://img.shields.io/badge/Reproducibility-Compliant-green.svg)](#experimental-results--benchmarks)
-[![Double-Blind](https://img.shields.io/badge/Review-Double--Blind%20Anonymized-orange.svg)](#)
+
+[![Peer-Review](https://img.shields.io/badge/Review-Peer--Review%20Anonymized-blue.svg)](#)
 
 Official implementation of **BAR-Sum** (Bounded Adaptive Reward Summarization) for reproducible, factual, and non-redundant extractive text summarization using Deep Reinforcement Learning (DRL) with Proximal Policy Optimization (PPO).
 
-> **Note for Reviewers:** This repository is anonymized for double-blind peer review. Author identities, institutional affiliations, and identifying metadata are withheld in compliance with peer-review integrity guidelines and will be fully disclosed upon acceptance (camera-ready release).
+> **Note for Reviewers:** This repository is anonymized for peer review. Author identities, institutional affiliations, and identifying metadata are withheld in compliance with peer-review integrity guidelines and will be fully disclosed upon acceptance (camera-ready release).
 
 ---
 
@@ -51,8 +52,9 @@ BAR-Sum-Code/
 ⚙️ Installation & Environment Setup
 1. Clone the Repository
 bash
-git clone https://anonymous.4open.science/r/BAR-Sum-Code
-cd BAR-Sum-Code
+git clone https://anonymous.4open.science/r/BAR-Sum-F532
+cd BAR-Sum-F532
+
 2. Create and Activate Virtual Environment
 Linux / macOS:
 
